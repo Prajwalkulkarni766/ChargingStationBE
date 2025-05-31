@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
+import { verifyJWT } from "./middlewares/auth.middleware.js";
 
 const app = express();
 
@@ -19,6 +21,7 @@ import chargingStationRoute from "./routes/chargingStation.route.js";
 
 // routes declaration
 app.use("/api/v1/users", userRoute);
+app.use(verifyJWT);
 app.use("/api/v1/charging-stations", chargingStationRoute);
 
 export default app;

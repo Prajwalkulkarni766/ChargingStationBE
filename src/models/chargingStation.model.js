@@ -17,6 +17,7 @@ const chargingStationSchema = new Schema({
       }
     },
     required: true,
+    _id: false
   },
   status: {
     type: String,
